@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<center>
+<table width="60%" border="0" align="center">
+<img class="three" src="{{url_for('static', filename='img/passo4.jpg')}}"><br>
+<img class="four" src="{{url_for('static', filename='img/classroom.jpg')}}">
+<form action="" method="POST" align="center">
+    <h6 align="middle">Cadeiras por fileira: <textarea style="resize:none" name="classroomx" id="classroomx" type="text "rows="1" cols="10" onkeyup="Allow()" placeholder="Cadeiras">{{classroom_x}}</textarea><br>
+            Número de fileiras: <textarea style="resize:none" name="classroomy" id="classroomy" type="text "rows="1" cols="10" onkeyup="Allow()" placeholder="Fileiras">{{classroom_y}}</textarea></h6>
+
+    <p align="center"><button type="submit" value="Próxima Etapa" style="width:200px;">Próxima Etapa</button></p></form>
+        {% if alert %}<h5><font color="red">{{ alert}}{% endif %}</h5></font>
+
+</table>
+</center>
+
+{% endblock %}

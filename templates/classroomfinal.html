@@ -1,0 +1,36 @@
+{% extends 'baseclassroomfinal.html' %}
+{% block body %}
+
+<div class="hide-print">
+<center>
+    <form>
+    <input type="button" value="  Imprimir  " onClick="window.print()"/>
+    </form>
+    <br>
+</center>
+</div>
+<table align="center" border="2" width="90%">
+    <tr>
+        <td colspan="{{classroom_x}}}}"><center><img src="{{url_for('static', filename='img/classroomfinal.jpg')}}"></td></tr>
+    {% for i in range (classroom_y) %}
+<tr align="center" valign="middle">
+    {% for j in range (classroom_x) %}
+    <td width="10%" height="50px" valign="middle"><small>
+        {% if _to_list[i][j] == "" %}Disponível
+            {% elif _to_list[i][j] == "  " %}- livre -
+            {% else %}<strong>{{_to_list[i][j]}}</strong>
+            {% endif %}
+        </small>
+    </td>
+
+    {% endfor %}
+</tr>
+
+{% endfor %}
+
+</table>
+<br>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<center>
+<table width="60%" border="0">
+<img class="three" src="{{url_for('static', filename='img/passo2.jpg')}}">
+</table></center>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin: 0 auto;
+}
+
+td, th {
+  border: 1px solid #f4bcff;
+  text-align: left;
+  padding: 40 px;
+  text-align: center;
+  vertical-align: middle;
+
+}
+
+tr:nth-child(even) {
+  background-color: #f9daff;
+  margin: 0 auto;
+
+}
+</style>
+<table>
+<form action="" method="POST" id="position">
+  <tr>
+    <th>Estudante</th>
+    <th>Frente</th>
+    <th>Atrás</th>
+    <th>Indiferente</th>
+  </tr>
+
+{% for st in studentslist %}
+
+  <tr>
+    <td>{{ st }}</td>
+    <td width="11%"><input type="radio" id="front" name="seat{{loop.index0}}" value="front"><label for="front"></label></td>
+    <td width="11%"><input type="radio" id="back" name="seat{{loop.index0}}" value="back"><label for="back"></label></td>
+    <td width="11%"><input type="radio" id="neutral" name="seat{{loop.index0}}" value="neutral" checked="checked"><label for="neutral"></label></td>
+  </tr>
+{% endfor %}
+</table><br>
+<p align="center"><button type="submit" form="position" value="Próxima Etapa" style="width:200px;">Próxima Etapa</button></p>
+
+
+{% endblock %}

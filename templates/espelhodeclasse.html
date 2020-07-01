@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<center>
+<table width="60%" border="0">
+<img class="three" src="{{url_for('static', filename='img/passo5.jpg')}}">
+</table>
+<a href="{{ url_for('classroomfinal')}}" target="_blank">
+<button type="button" value="" style="width:400px;">VERSÃO PARA IMPRESSÃO</button></a></center>
+{% if warning %}<p></p>
+<h6 align="center" style="color:red">Após 100 tentativas, não conseguimos aplicar as regras a todos os estudantes.<br>
+Sugerimos reduzir o tamanho dos grupos no passo "Separação de Grupos"</h6>{% endif %}
+<table align="center" border="2" width="95%">
+    <tr>
+        <td colspan="{{classroom_x}}}}"><center><img src="{{url_for('static', filename='img/mesaprofessor.jpg')}}"</center><p></p></tr></td>
+<br>
+    {% for i in range (classroom_y) %}
+<tr class="spaceTop">
+    {% for j in range (classroom_x) %}
+    <td>
+        <img src="{{url_for('static', filename='img/carteira.jpg')}}" class="center"><small><center>{{_to_list[i][j]}}</center></small>
+    </td>
+
+    {% endfor %}
+</tr>
+
+{% endfor %}
+
+</table>
+<br>
+
+{% endblock %}
+
