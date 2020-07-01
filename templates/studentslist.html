@@ -4,13 +4,13 @@
 <center>
 <table width="60%" border="0">
 <img class="three" src="{{url_for('static', filename='img/passo1.jpg')}}">
-</table></center>
-<br>
+</center>
+<br><br>
     <form action="" method="POST" align="center">
         {% if studentslist|length < 2 %}
-        <textarea style="resize:none" name="studentslist" id="studentslist" type="text "rows="20" cols="80" onkeyup="Allow()" placeholder="Preencha com a Lista de Alunos"></textarea>
+        <textarea style="resize:none" name="studentslist" id="studentslist" type="text "rows="10" cols="100%" onkeyup="Allow()" placeholder="Preencha com a Lista de Alunos"></textarea>
         {% else %}
-        <textarea style="resize:none" name="studentslist" id="studentslist" type="text "rows="20" cols="80" onkeyup="Allow()" placeholder="Preencha com a Lista de Alunos"></textarea>
+        <textarea style="resize:none" name="studentslist" id="studentslist" type="text "rows="10" cols="100%" onkeyup="Allow()" placeholder="Preencha com a Lista de Alunos"></textarea>
 {% for st in studentslist %}{{ st }}
 {% endfor %}
 {% endif %}
@@ -18,5 +18,5 @@
         <br>
     <p align="center"><button type="submit" value="Próxima Etapa" style="width:200px;">Próxima Etapa</button>
 </form>
-
+</table>
 {% endblock %}
