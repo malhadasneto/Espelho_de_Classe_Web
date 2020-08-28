@@ -11,18 +11,18 @@ textarea {
 }
 
 img.two {
+  height: 80%;
+  width: 80%;
+}
+
+img.three {
   height: 70%;
   width: 70%;
 }
 
-img.three {
+img.four {
   height: 50%;
   width: 50%;
-}
-
-img.four {
-  height: 25%;
-  width: 25%;
 }
 
 

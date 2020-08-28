@@ -1,4 +1,5 @@
 from random import shuffle
+from math import ceil
 
 
 def final_classroom(st_dict, st_front, st_back, st_enemies, classroom_x, classroom_y):
@@ -34,21 +35,17 @@ def final_classroom(st_dict, st_front, st_back, st_enemies, classroom_x, classro
     def check_enemies(st,i,j):
         temp_enemies = enemies_dict[st]
         for x in temp_enemies:
-            if get_index(classroom_final, x): #se inimigo nao foi posicionado, nao precisa se preocupar
+            if get_index(classroom_final, x):  # se inimigo nao foi posicionado, nao precisa se preocupar
                 if abs(i - get_index(classroom_final, x)[0]) < 2 and abs (j - get_index(classroom_final, x)[1]) < 2:
                     return True
 
-
     def no_seat(classroom_final):
-        c=0
-        if len(st_dict) < 11 and classroom_y*classroom_x > 2:
-            c += 3
-        for i in range(classroom_y-1, -1,-1):
+    #the idea is to "populate" the room to avoid empty rows
+        c = 1+(classroom_y - ceil(len(st_dict) / classroom_x))
+        for i in range(-1, -c, -1):
             for j in range (classroom_x-1, -1, -1):
-                if classroom_y * classroom_x == len(st_dict) + c:
-                    return classroom_final
                 classroom_final[i][j] = "  "
-                c += 1
+        return None
 
     #Arranging students!
     all_lists = []
@@ -85,7 +82,7 @@ def final_classroom(st_dict, st_front, st_back, st_enemies, classroom_x, classro
                                     students_in_place += 1
                                     control = -1
                                     break
-        print(count, "count", classroom_final, students_in_place, "st place", len(st_dict), "dict")
+        # print(count, "count", classroom_final, students_in_place, "st place", len(st_dict), "dict")
     new_list = []
     for sublist in classroom_final:
         new_sublist = []
